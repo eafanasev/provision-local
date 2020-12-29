@@ -1,0 +1,48 @@
+---
+
+- name: install docker apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  become: yes
+
+- name: install docker repo
+  apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: install docker
+  apt:
+    name:
+    - "docker-ce"
+    - "docker-ce-cli"
+    - "containerd.io"
+    state: present
+  become: yes
+
+- name: start docker deamon
+  shell: service docker start
+  become: yes
+
+- name: create docker group
+  group:
+    name: docker
+    state: present
+  become: yes
+
+- name: get the current username
+  local_action: command whoami
+  register: current_username
+
+- name: add docker group to user
+  user:
+    name: "{{ current_username.stdout }}"
+    groups: docker
+    append: yes
+  become: yes
+
+- name: reloaded docker deamon
+  shell: service docker restart
+  become: yes

@@ -1,0 +1,18 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+
+  pre_tasks:
+    - name: make sure dependencies is installed
+      apt:
+        name:
+          - apt-transport-https
+          - gnupg2
+          - ca-certificates
+          - python3-pip
+        update_cache: yes
+      become: yes
+
+  roles:
+    - common

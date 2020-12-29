@@ -1,0 +1,23 @@
+---
+
+- name: dconf - add fav apps
+  shell: |
+    dconf write /org/gnome/shell/favorite-apps "[
+    'google-chrome.desktop',
+    'atom.desktop',
+    'skype_skypeforlinux.desktop',
+    'telegramdesktop.desktop',
+    'libreoffice-calc.desktop',
+    'org.gnome.Nautilus.desktop',
+    'org.gnome.Calculator.desktop',
+    'org.gnome.Screenshot.desktop',
+    'keepass2.desktop']"
+
+- name: dconf - add key layouts
+  shell: |
+    dconf write /org/gnome/desktop/input-sources/sources "[
+    ('xkb', 'us'),
+    ('xkb', 'ru')]"
+
+- name: dconf - set dash icon size
+  shell: dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size 20

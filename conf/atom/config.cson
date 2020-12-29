@@ -1,0 +1,36 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-debugger":
+      showDebuggerOnBpSet: false
+    "atom-ide-diagnostics-ui":
+      statusBarPosition: "right"
+    "atom-ide-outline-view": {}
+    use:
+      "atom-ide-debugger": "never"
+      "atom-ide-terminal": "never"
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    showLineNumbers: false
+  minimap:
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Minimum"
+  terminus:
+    ansiColors:
+      normal:
+        blue: "#525298"
+      zBright:
+        brightBlue: "#555589"
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,45 @@
+---
+
+- name: install atom apt key
+  become: yes
+  apt_key:
+    url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
+    state: present
+
+- name: install atom repo
+  become: yes
+  apt_repository:
+    repo: deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
+    filename: atom
+    state: present
+
+- name: install atom
+  become: yes
+  apt:
+    name: atom
+    state: present
+
+- name: install atom packages
+  shell: |
+    set -euo pipefail
+    apm list --bare | grep -E '^{{ item }}@' &&
+    echo 'Already installed.' ||
+    apm install '{{ item }}'
+  args:
+    executable: /bin/bash
+  with_items:
+    - highlight-selected
+    - minimap
+    - minimap-git-diff
+    - minimap-highlight-selected
+    - terminus
+    - ide-python
+  loop_control:
+    label: '{{ item }}'
+  register: apm_result
+  changed_when: "'Already installed.' not in apm_result.stdout"
+
+- name: copy atom config
+  copy:
+    dest: '{{ ansible_env.HOME }}/.atom/config.cson'
+    src: 'conf/atom/config.cson'

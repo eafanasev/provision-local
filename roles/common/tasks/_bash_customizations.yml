@@ -1,0 +1,6 @@
+---
+
+- name: copy imputrc config
+  copy:
+    dest: '{{ ansible_env.HOME }}/.inputrc'
+    src: 'conf/system/inputrc'

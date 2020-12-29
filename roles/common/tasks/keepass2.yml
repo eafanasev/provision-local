@@ -1,0 +1,7 @@
+---
+
+- name: install keepass2
+  become: yes
+  apt:
+    name: keepass2
+    state: present
