@@ -1,1 +1,6 @@
 add virtualenv
+add toby chrome extension
+add vbox 6.1.14+ version(maybe in raw repos?)
+enable syncthing
+
+added atom atom-ide-base(fail?) linter-ui-default(and deps...) package
