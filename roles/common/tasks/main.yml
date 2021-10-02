@@ -1,5 +1,6 @@
 ---
   - include_tasks: atom.yml
+  - include_tasks: anydesk.yml
   - include_tasks: chrome.yml
   - include_tasks: docker.yml
   - include_tasks: docker-compose.yml
