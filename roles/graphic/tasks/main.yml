@@ -1,5 +1,4 @@
 ---
-
-  - include inkscape.yml
-  - include openshot.yml
-  - include pinta.yml
+  - include_tasks: inkscape.yml
+  - include_tasks: openshot.yml
+  - include_tasks: pinta.yml

@@ -10,7 +10,7 @@
           - apt-transport-https
           - gnupg2
           - ca-certificates
-          - python-pip
+          - python3-pip
         update_cache: yes
       become: yes
 
