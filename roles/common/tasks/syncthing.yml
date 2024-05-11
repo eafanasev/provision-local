@@ -18,3 +18,20 @@
   apt:
     name: syncthing
     state: present
+
+- name: create service folders
+  ansible.builtin.file:
+    path: '~/.config/systemd/user/'
+    state: directory
+
+- name: create service config
+  copy:
+    src: /usr/lib/systemd/system/syncthing@.service 
+    dest: '~/.config/systemd/user/syncthing@{{ ansible_env.USER }}.service'
+
+- name: make sure syncthing is started and enabled
+  become: yes
+  systemd:
+    name: 'syncthing@{{ ansible_env.USER }}.service'
+    state: started
+    enabled: true

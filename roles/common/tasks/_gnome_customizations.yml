@@ -4,14 +4,24 @@
   shell: |
     dconf write /org/gnome/shell/favorite-apps "[
     'google-chrome.desktop',
-    'atom.desktop',
-    'skype_skypeforlinux.desktop',
-    'telegramdesktop.desktop',
+    'com.spotify.Client.desktop',
+    'org.telegram.desktop.desktop',
+    'md.obsidian.Obsidian.desktop',
+    'code.desktop',
     'libreoffice-calc.desktop',
     'org.gnome.Nautilus.desktop',
     'org.gnome.Calculator.desktop',
-    'org.gnome.Screenshot.desktop',
-    'keepass2.desktop']"
+    'keepass2.desktop',
+    'anydesk.desktop',
+    'firefox_firefox.desktop',
+    'org.kde.krita.desktop',
+    'org.inkscape.Inkscape.desktop',
+    'transmission-gtk.desktop',
+    'syncthing-ui.desktop',
+    'veracrypt.desktop',
+    'org.gnome.Terminal.desktop',
+    'org.gnome.SystemMonitor.desktop'
+    ]"
 
 - name: dconf - add key layouts
   shell: |
@@ -20,4 +30,4 @@
     ('xkb', 'ru')]"
 
 - name: dconf - set dash icon size
-  shell: dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size 20
+  shell: dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size 24

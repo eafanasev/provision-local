@@ -1,0 +1,13 @@
+---
+
+- name: install network-manager-l2tp-gnome
+  become: yes
+  apt:
+    name: network-manager-l2tp-gnome
+    state: present
+
+# - name: install network-manager-strongswan
+#   become: yes
+#   apt:
+#     name: network-manager-strongswan
+#     state: present

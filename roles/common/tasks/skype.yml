@@ -1,8 +1,0 @@
----
-
-- name: install skype
-  become: yes
-  snap:
-    name: skype
-    classic: yes
-    state: present

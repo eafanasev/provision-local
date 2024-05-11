@@ -1,0 +1,37 @@
+---
+- name: Download and prepare GPG key
+  shell: |
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    
+- name: Install GPG key
+  become: true
+  shell: |
+    install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+    
+- name: Add VSCode repo
+  become: true
+  apt_repository:
+    repo: deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+    state: present
+
+- name: Remove temp files
+  shell: rm -f packages.microsoft.gpg
+
+- name: install vscode
+  become: yes
+  apt:
+    name: code
+    state: present
+
+- name: install extensions
+  shell: |
+    code --install-extension ms-python.python |
+    code --install-extension ms-python.vscode-pylance |
+    code --install-extension mrorz.language-gettext |
+    code --install-extension dbaeumer.vscode-eslint |
+    code --install-extension vue.volar |
+    code --install-extension ms-azuretools.vscode-docker |
+    code --install-extension zhuangtongfa.material-theme
+
+
+

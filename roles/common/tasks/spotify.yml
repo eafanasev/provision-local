@@ -1,0 +1,7 @@
+---
+
+- name: install spotify over flatpak
+  become: true
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref
+    state: present

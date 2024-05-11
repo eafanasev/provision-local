@@ -1,0 +1,7 @@
+---
+
+- name: install obsidian over flatpak
+  become: true
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref
+    state: present

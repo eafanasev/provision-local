@@ -1,0 +1,7 @@
+---
+
+- name: install krita over flatpak
+  become: true
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/org.kde.krita.flatpakref
+    state: present

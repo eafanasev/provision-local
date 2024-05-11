@@ -1,0 +1,7 @@
+---
+
+- name: Set user.name
+  ansible.builtin.command: git config --global user.name "Eugene Afanasev"
+
+- name: Set user.email
+  ansible.builtin.command: git config --global user.email "emafanasev@yandex.ru"

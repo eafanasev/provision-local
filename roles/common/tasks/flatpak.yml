@@ -1,0 +1,7 @@
+---
+
+- name: install flatpak
+  become: yes
+  apt:
+    name: flatpak
+    state: present

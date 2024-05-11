@@ -1,0 +1,7 @@
+---
+
+- name: install veracrypt
+  become: yes
+  apt:
+    deb: https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-23.04-amd64.deb
+    state: present

@@ -1,7 +1,7 @@
 ---
 
-- name: install telegram
-  become: yes
-  apt:
-    name: telegram-desktop
+- name: install telegram over flatpak
+  become: true
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref
     state: present

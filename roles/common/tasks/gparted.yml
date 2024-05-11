@@ -1,7 +1,0 @@
----
-
-- name: install gparted
-  become: yes
-  apt:
-    name: gparted
-    state: present

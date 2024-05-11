@@ -1,7 +1,0 @@
----
-
-- name: install openshot
-  become: yes
-  apt:
-    name: openshot
-    state: present
